@@ -20,6 +20,11 @@ class TradeItemTest < Test::Unit::TestCase
     assert(item.name == 'john', 'Item should be called \'john\'')
   end
 
+  def test_should_have_nice_to_s
+    item = Trade_Market::TradeItem.new('Bamboo', 42, nil)
+    assert(item.to_s == "Bamboo costs 42 credits")
+  end
+
   def test_should_have_owner
     #Not yet implemented because User doesn't exist (yet).
   end

@@ -6,7 +6,7 @@ module Trade_Market
     attr_accessor :name, :credit_amount, :items
 
     # @param [String] name
-    def initialize (name)
+    def initialize(name)
       @name = name
       @credit_amount = CREDIT_AMOUNT
       @items = Array.new

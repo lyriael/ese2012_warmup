@@ -23,6 +23,9 @@ module Trade_Market
       @status = false
     end
 
+    def to_s
+      "#{name.capitalize} costs #{price} credits"
+    end
   end
 
 end
