@@ -1,6 +1,6 @@
 module Trade_Market
 
-  class Item
+  class TradeItem
 
     attr_accessor :name, :price, :status, :owner
 

@@ -1,3 +1,3 @@
-class ItemTest
+class TradeItemTest
   # To change this template use File | Settings | File Templates.
 end

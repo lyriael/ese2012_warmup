@@ -9,15 +9,30 @@ module Trade_Market
     def initialize (name)
       @name = name
       @credit_amount = CREDIT_AMOUNT
-      self.items = Array.new
+      @items = Array.new
     end
 
+    # @param [String] item_name
+    # @param [Float] item_price
     def add_item (item_name, item_price)
-      item = Item.new(item_name, item_price, self)
 
+      item = TradeItem.new(item_name, item_price, self)
       items.push(item)
     end
 
-  end
+    #displays all active items of this user in a String. Returns an Array containing the same items.
+    def display_items
 
-end
+      active_items = []
+      @items.each do |item|
+        if item.status
+          puts item.to_s
+          active_items.push(item)
+        end
+      end
+
+    end
+
+  end # class: User
+
+end # module
