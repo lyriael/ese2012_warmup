@@ -23,6 +23,10 @@ module Trade_Market
       @status = false
     end
 
+    def new_owner (n_owner)
+      #TODO change owner: remove from one list and add to another. Dont foreget: item must be inactiv afterwards
+    end
+
     def to_s
       "#{name.capitalize} costs #{price} credits"
     end

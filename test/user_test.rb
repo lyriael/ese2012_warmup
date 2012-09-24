@@ -29,8 +29,4 @@ class UserTest   < Test::Unit::TestCase
     assert(user.items.size == 0, 'User should have no items yet, but array contains' + user.items.size.to_s + 'items: ' +user.items.to_s)
   end
 
-  #something is reeeeeally wrong here...
-  def test_to_test_test
-    assert(2==8)
-  end
 end

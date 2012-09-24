@@ -20,8 +20,14 @@ module Trade_Market
       items.push(item)
     end
 
+    # @param [User] other_user
+    def pay_to (other_user)
+       #TODO take credit and give credit
+    end
+
     #displays all active items of this user in a String. Returns an Array containing the same items.
-    def display_items
+    #TODO test
+    def display_items_for_sale
 
       active_items = []
       @items.each do |item|
@@ -30,9 +36,23 @@ module Trade_Market
           active_items.push(item)
         end
       end
+    end
 
+    # @param [TradeItem] item
+    #TODO biiig test
+    def buy_item (item)
+      if item == nil
+        puts "transaction fail. \n Item '"+ item.name + "does not exist."
+      elsif  !item.status
+        puts "transaction fail. \n Item '"+ item.name + "is not for sale."
+      elsif  item.price > self.credit_amount
+        puts "transaction fail. \n "+ self.name + "has not enough credit."
+      else
+        pay_to(item.owner)
+        item.new_owner (self)
+      end
     end
 
   end # class: User
 
-end # module
+end
