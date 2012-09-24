@@ -8,11 +8,13 @@ class TradeItemTest < Test::Unit::TestCase
     assert(item != nil, 'Item should be created')
   end
   #Test doesn't work with 'create' but it does with 'new', why?
+  #Because you didn't define a method create :) Looks like
+  #new is a constructor defined automatically.
 
 
   def test_should_have_price
     item = Trade_Market::TradeItem.new('sand', 100, nil)
-    assert(item.price == 100, 'Price should be 100 credits, but is \'' + item.price.to_s + '\'')
+    assert(item.price == 100, "Price should be 100 credits, but is \'#{item.price}\'")
   end
 
   def test_should_have_name
