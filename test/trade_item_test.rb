@@ -12,7 +12,7 @@ class TradeItemTest < Test::Unit::TestCase
 
   def test_should_have_price
     item = Trade_Market::TradeItem.new('sand', 100, nil)
-    assert(item.price == 100, 'Price should be 100 credits')
+    assert(item.price == 100, 'Price should be 100 credits, but is \'' + item.price.to_s + '\'')
   end
 
   def test_should_have_name
