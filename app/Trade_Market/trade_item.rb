@@ -4,6 +4,7 @@ module Trade_Market
 
     attr_accessor :name, :price, :status, :owner
 
+# :doc:
 # @param [String] name
 # @param [Float] price
 # @param [User] owner
@@ -15,6 +16,9 @@ module Trade_Market
 
     end
 
+# Activates item to put it
+# to the list of selling
+# items.
     def activate
       @status = true
     end

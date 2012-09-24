@@ -27,6 +27,12 @@ class TradeItemTest < Test::Unit::TestCase
     assert(item.to_s == "Bamboo costs 42 credits")
   end
 
+  def test_should_be_active
+    item = Trade_Market::TradeItem.new('Hitchhikers guide to the universe', 42, nil)
+    item.activate
+    assert(item.status == TRUE)
+  end
+
   def test_should_have_owner
     #Not yet implemented because User doesn't exist (yet).
   end
