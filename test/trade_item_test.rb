@@ -1,5 +1,6 @@
 require 'test/unit'
 require '../app/Trade_Market/trade_item'
+require '../app/Trade_Market/user'
 
 class TradeItemTest < Test::Unit::TestCase
 
@@ -22,18 +23,20 @@ class TradeItemTest < Test::Unit::TestCase
     assert(item.name == 'john', 'Item should be called \'john\'')
   end
 
-  def test_should_have_nice_to_s
-    item = Trade_Market::TradeItem.new('Bamboo', 42, nil)
-    assert(item.to_s == "Bamboo costs 42 credits")
+  def test_should_be_inactive_init
+    item = Trade_Market::TradeItem.new('Spoon', 5, nil)
+    assert(!item.status,"Status should be inactive on init, but was activ.")
   end
 
   def test_should_be_active
     item = Trade_Market::TradeItem.new('Hitchhikers guide to the universe', 42, nil)
     item.activate
-    assert(item.status == TRUE)
+    assert(item.status, "Status should be active after invoking \'activate\'")
   end
 
   def test_should_have_owner
-    #Not yet implemented because User doesn't exist (yet).
+    user = Trade_Market::User.new('Lord Darth Vader')
+    item = Trade_Market::TradeItem.new('Death Star', 75, user)
+    assert(item.owner == user, "Owner of #{item} should be \'Lord Darth Vader\' but was #{user.name}")
   end
 end
